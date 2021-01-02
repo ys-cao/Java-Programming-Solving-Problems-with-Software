@@ -1,5 +1,5 @@
 /**
- * Write a description of Part1 here.
+ * Write a description of Part2 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
