@@ -20,7 +20,7 @@ public class Part4 {
             if (location != -1) {
                 int startIndex = wordLowerCase.lastIndexOf(doubleQuote, location);
                 int stopIndex = wordLowerCase.indexOf(doubleQuote, location);
-                String address = word.substring(startIndex, stopIndex + 1);
+                String address = word.substring(startIndex + 1, stopIndex);
                 System.out.println(address);
             }
         }
