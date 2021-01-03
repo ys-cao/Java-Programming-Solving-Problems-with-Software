@@ -34,8 +34,8 @@ public class Part1 {
         System.out.println("tests finihsed");
     }
     
-    public String findGene(String dna) {
-        int startIndex = dna.indexOf("ATG");
+    public String findGene(String dna, int where) {
+        int startIndex = dna.indexOf("ATG", where);
         if (startIndex == -1) return "";
         int taaIndex = findStopCodon(dna, startIndex, "TAA");
         int tagIndex = findStopCodon(dna, startIndex, "TAG");
@@ -48,11 +48,17 @@ public class Part1 {
     
     public void testFindGene() {
         String dna = "ATGyyzzzTAAxxxxyyyzzzTAAxx";
-        String gene = findGene(dna);
+        String gene = findGene(dna, 0);
         System.out.println(gene);
     }
     
     public void printAllGenes(String dna) {
-        System.out.println(findGene(dna));
+        int currIndex = 0;
+        while (true) {
+            String gene = findGene(dna, currIndex);
+            if (gene.isEmpty()) break;
+            System.out.println("Gene strand is " + gene);
+            currIndex = dna.indexOf(gene, currIndex) + gene.length();
+        }
     }
 }
