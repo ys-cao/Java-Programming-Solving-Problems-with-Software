@@ -13,3 +13,8 @@
     - <a href="/Week2/StringsSecondAssignment/Part1.java">Part1.java</a>
     - <a href="/Week2/StringsSecondAssignment/Part2.java">Part2.java</a>
     - <a href="/Week2/StringsSecondAssignment/Part3.java">Part3.java</a>
+    
+- Week 3
+  - <a href="/Week3/ParsingExportData.java">ParsingExportData.java</a>
+    
+     
