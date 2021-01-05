@@ -48,10 +48,10 @@ public class ParsingWeatherData {
     }
 
     public void testFileWithColdestTemperature() {
-        String fileWithColdestTemperature = fileWithColdestTemperature();
-        File f = new File(fileWithColdestTemperature);
+        String filename = fileWithColdestTemperature();
+        File f = new File(filename);
         
-        System.out.println("Coldest day was in file " + fileWithColdestTemperature);
+        System.out.println("Coldest day was in file " + filename);
         
         FileResource fr = new FileResource(f);
         CSVParser parser = fr.getCSVParser();
