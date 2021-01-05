@@ -38,18 +38,21 @@ public class ParsingWeatherData {
             } else {
                 double currentTemp = Double.parseDouble(currentRow.get("TemperatureF"));
                 double smallestTemp = Double.parseDouble(smallestSoFar.get("TemperatureF"));
-                if (currentTemp < smallestTemp) {
+                if (currentTemp < smallestTemp && currentTemp > -100) {
                     smallestSoFar = currentRow;
                     file = f;
                 }
             }
         }
-        return file.getName();
+        
+        // If don't reture absolute path, when call test, it won't find the file.
+        return file.getAbsolutePath();
     }
 
     public void testFileWithColdestTemperature() {
-        String filename = fileWithColdestTemperature();
-        File f = new File(filename);
+        String fileWithColdestTemperature = fileWithColdestTemperature();
+        File f = new File(fileWithColdestTemperature);
+        String filename = f.getName();
         
         System.out.println("Coldest day was in file " + filename);
         
@@ -59,8 +62,8 @@ public class ParsingWeatherData {
         System.out.println("Coldest temperature on that day was " + smallest.get("TemperatureF"));
 
         System.out.println("All the Temperatures on the coldest day were: ");
-        parser = fr.getCSVParser();
-        for (CSVRecord record : parser) {
+        CSVParser parser2 = fr.getCSVParser();
+        for (CSVRecord record : parser2) {
             System.out.println(record.get("DateUTC") + ": " + record.get("TemperatureF"));
         }
     }
@@ -163,7 +166,7 @@ public class ParsingWeatherData {
         }
 
         if (count != 0) {
-            double aveTemp = total / count;
+            double aveTemp = (double) total / count;
             return aveTemp;
         } else {
             return -1.0;
