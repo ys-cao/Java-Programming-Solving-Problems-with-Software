@@ -20,5 +20,6 @@
     
 - Week 3
   - <a href="/Week3/ParsingExportData.java">ParsingExportData.java</a>
+  - <a href="/Week3/ParsingWeatherData.java">ParsingWeatherData.java</a>
     
      
